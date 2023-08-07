@@ -28,17 +28,15 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public void startTest() {
-        try (Scanner sc = new Scanner(System.in)) {
-            for (int i = 1; i<=listOfQuestions.size(); i++) {
-                System.out.println("" + i + ": " + listOfQuestions.get(i - 1));
-                String answer = "";
-                if (sc.hasNext()) {
-                    answer = sc.nextLine();
-                }
-
-                if (answer.equals(listOfAnswers.get(i - 1))) {
-                    scope += listOfScopes.get(i - 1);
-                }
+        Scanner sc = new Scanner(System.in);
+        for (int i = 1; i<=listOfQuestions.size(); i++) {
+            System.out.println("" + i + ": " + listOfQuestions.get(i - 1));
+            String answer = "";
+            if (sc.hasNext()) {
+                answer = sc.nextLine();
+            }
+            if (answer.equals(listOfAnswers.get(i - 1))) {
+                scope += listOfScopes.get(i - 1);
             }
         }
     }
